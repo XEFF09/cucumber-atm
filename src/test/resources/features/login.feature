@@ -13,3 +13,12 @@ Scenario: Correct id and pin
 Scenario: Incorrect pin
     When I login to ATM with id 1 and pin 222
     Then I cannot login
+
+Scenario Outline: Incorrect id
+    When I login to ATM with id <id> and pin <pin>
+    Then I cannot login
+    Examples:
+        |   id  |   pin |
+        |   2   |   111 |
+        |   2   |   222 |
+        |   3   |   111 |
